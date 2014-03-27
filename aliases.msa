@@ -1,0 +1,131 @@
+#=========================================================================#
+#
+# Command Helper aliases file for Kit PVP
+#
+#=========================================================================#
+
+guest:/kit [$kitname=''] [$option=''] = >>>
+	@kitname = $kitname
+	@option = $option
+	@player = player()
+	@kitlist = import('kit.list')
+		if(@kitname == '') {
+			msg(colorize('&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-'))
+			msg(colorize('&6Kits you have access:'))
+					foreach(@kitlist, @kit) {
+						if(has_permission(@player, 'kit.'.@kit)) {
+							msg(colorize('&d/kit&b'@kit))
+						}
+					}
+						msg(colorize('&6Type &4/kit info &7<&fname&7> &6For more information'))
+						die()
+		}
+		if(@kitname == 'info') {
+			if(@option == '') {
+				die(colorize('&4Error: You need to specify a Kit name'))
+			}
+			@kitinfo = import('kit.id.'.@option)
+			if(@kitinfo == null) {
+				die(colorize('&4Error: This Kit does not exist'))
+			}
+				foreach(@kitinfo, @item) {
+					if(array_size(@item) > 2) {
+						@item3 = _identify_enchant_info(array_get(@item, 2))
+						msg(colorize('&d'array_get(@item, 1)'&bX'data_name(array_get(@item, 0))'&d with'@item3 array_get(@item, 3)))
+					}
+					if(array_size(@item) < 3) {
+						msg(colorize('&d'array_get(@item, 1)'&bX'data_name(array_get(@item, 0))))
+					}
+				}	
+			die()
+		}		
+		if(@kitname != '') {
+			if(array_contains(@kitlist, @kitname)) {
+				if(has_permission(@player, 'kit.'.@kitname)) {
+					@kitstatus = import('kit.used.'.@player)
+						if(@kitstatus != 'on') {
+							@kittimer = get_value('kit.used.'.@kitname.'.'.@player)
+								if(@kittimer == null) {
+									@kittimer = '0'
+								}
+								if(@kittimer < time()) {
+									@items = import('kit.id.'.@kitname)
+											foreach(@items, @item) {
+												if(array_size(@item) > 2) {
+												@item3 = _identify_enchant(array_get(@item, 2))
+												pgive_item(@player, array_get(@item, 0), array_get(@item, 1), array(enchants: array(array(elevel: array_get(@item, 3), etype: @item3))))
+												}
+												if(array_size(@item) < 3) {
+												pgive_item(@player, array_get(@item, 0), array_get(@item, 1))
+												}	
+											}
+										@cooldown = _kit_cooldown(@kitname)
+										store_value('kit.used.'.@kitname.'.'.@player, add(time(), @cooldown))
+										export('kit.used.'.@player, 'on')
+										die()
+								}
+								die(colorize('&4Error: You kit is in CoolDown'))
+						}
+						die(colorize('&4Error: Your already used your kit'))
+				}
+				die(colorize('&4Error: You do not have access to this kit'))
+			}
+			die(colorize('&4Error:'@kitname'&4Is not a Defined kit, type /kit for more info'))
+		}
+		
+	<<<
+		
+	guest:/buykit [$kitname=''] [$option=''] = >>>
+			@player = player()
+			@kitname = $kitname
+			@option = $option
+			@buykitlist = import('kit.buy.list')
+				if(@kitname == '') {
+					msg(colorize('&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-&5=&4-'))
+					msg(colorize('&6Kits you could Buy:'))
+						@i = 0
+						foreach(@buykitlist, @buykit) {
+							if(!has_permission(@player, 'kit.'.@buykit)) {
+								msg(colorize('&d/buykit&b'@buykit'&dPrice:&b'array_index(@buykitlist, @buykit).'$'))
+								@i++
+							}
+						}
+					if(@i == 0) {
+						die(colorize('&4 You already Own all buyable kits'))
+						}
+						msg(colorize('&6Type &4/buykit info &7<&fname&7> &6For more information'))
+						die()
+				}
+				if(@kitname == 'info') {
+					if(@option == '') {
+					die(colorize('&4Error: You need to specify a Kit name'))
+					}
+					@kitinfo = import('kit.id.'.@option)
+					if(@kitinfo == null) {
+						die(colorize('&4Error: This Kit does not exist'))
+					}
+					foreach(@kitinfo, @item) {
+						if(array_size(@item) > 2) {
+							@item3 = _identify_enchant_info(array_get(@item, 2))
+							msg(colorize('&d'array_get(@item, 1).'&bX'data_name(array_get(@item, 0))'&dwith'@item3 array_get(@item, 3)))
+						}
+						if(array_size(@item) < 3) {
+							msg(colorize('&d'array_get(@item, 1).'&bX'data_name(array_get(@item, 0))))
+						}
+					}	
+				die()
+			}
+				###Make sure kits name are added to kit.list array! (LocalPackage/auto_include.ms)
+				@buykitnormlist = array_normalize(@buykitlist)
+				if(array_contains(@buykitnormlist, @kitname)) {
+					@price = array_index(@buykitlist, @kitname)
+					_buykit(@player, @kitname, @price)
+				}
+				msg(colorize('&4Error: That kit name does not exist'))
+		<<<
+
+				
+				
+				
+				
+	
