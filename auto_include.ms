@@ -23,7 +23,7 @@ proc(_emptyinv, @player,
 proc(_buykit, @player, @kitname, @price,
 	if(!has_permission(@player, 'kit.'.@kitname)) {
 		if(acc_balance(@player) >= @price) {
-			sudo('/permissions player'@player'set kit.'@kitname)
+			sudo('/permissions player'@player'set kit.'.@kitname)
 			acc_subtract(@player, @price)
 			tmsg(@player, colorize('&5CONGRATULATION! &2 You have bought'@kitname' Kit!'))
 			die()

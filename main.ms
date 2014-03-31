@@ -9,7 +9,6 @@ set_timeout(1000, closure(
 bind(player_death, null, null, @event,
 	@died = @event['player']
 	@killer = @event['killer']
-	_emptyinv(@died)
 	@amount = import('kill.amount')
 	acc_add(@killer, @amount)
 	export('kit.used.'.@died, '')
@@ -19,7 +18,4 @@ bind(player_death, null, null, @event,
 	tmsg(@died, colorize('&c You have been killed by'@killer))
 )
 
-bind(item_drop, null, null, @event,
-	cancel()
-	)
 	

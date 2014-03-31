@@ -42,8 +42,6 @@ guest:/kit [$kitname=''] [$option=''] = >>>
 		if(@kitname != '') {
 			if(array_contains(@kitlist, @kitname)) {
 				if(has_permission(@player, 'kit.'.@kitname)) {
-					@kitstatus = import('kit.used.'.@player)
-						if(@kitstatus != 'on') {
 							@kittimer = get_value('kit.used.'.@kitname.'.'.@player)
 								if(@kittimer == null) {
 									@kittimer = '0'
@@ -61,12 +59,9 @@ guest:/kit [$kitname=''] [$option=''] = >>>
 											}
 										@cooldown = _kit_cooldown(@kitname)
 										store_value('kit.used.'.@kitname.'.'.@player, add(time(), @cooldown))
-										export('kit.used.'.@player, 'on')
 										die()
 								}
-								die(colorize('&4Error: You kit is in CoolDown'))
-						}
-						die(colorize('&4Error: Your already used your kit'))
+								die(colorize('&4Error: Your kit is in CoolDown' integer(subtract(@kittimer, time())/1000/60)'minute left.'))
 				}
 				die(colorize('&4Error: You do not have access to this kit'))
 			}
