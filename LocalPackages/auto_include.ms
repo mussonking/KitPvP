@@ -1,6 +1,6 @@
 proc(_loadonstartarrays,
 	### How much money you receive after a kill
-	export('kill.amount', '5')
+	export('kill.amount', '4')
 	
 	##########################################
 	# Add your kit name into the right array
@@ -61,7 +61,7 @@ proc(_loadonstartarrays,
 			return('300000')
 		}
 		if(@ident == 'legend') {
-			return('172800000')
+			return('21600000')
 		}
 		if(@ident == 'scout') {
 			return('3600000')
