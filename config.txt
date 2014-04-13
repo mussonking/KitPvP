@@ -17,7 +17,7 @@ guest:/kit [$kitname=''] [$option=''] = >>>
 							msg(colorize('&d/kit&b'@kit))
 						}
 					}
-						msg(colorize('&6Type &4/kit info &7<&fname&7> &6For more information'))
+						msg(colorize('&6Type &4/kit info &7<&4name&7> &6For more information'))
 						die()
 		}
 		if(@kitname == 'info') {
@@ -119,8 +119,56 @@ guest:/kit [$kitname=''] [$option=''] = >>>
 				msg(colorize('&4Error: That kit name does not exist'))
 		<<<
 
-				
-				
+guest:/stats [$name=''] = >>>
+	@name = $name
+	@player = player()
+		if(@name == '') {
+			@kills = get_pscore('kills', @player)
+			@deaths = get_pscore('deaths', @player)
+			@kdkills = @kills
+			@kddeaths = @deaths
+				if(@kills == '0') {
+					@kdkills = '1'
+				}
+				if(@deaths == '0') {
+					@kddeaths = '1'
+				}
+				@kdratio = @kdkills/@kddeaths
+				msg(colorize('&6'.@player' Stats'))
+				msg(colorize('&6Kills:&e'@kills))
+				msg(colorize('&6Deaths:&e'@deaths))
+				msg(colorize('&6Kill/Death Ratio:&e'@kdratio))
+				die()
+		}
+		if(@name != '') {
+			if(!ponline(@name)) {	
+				die(colorize('&4Error: The player need to be online.'))
+			}
+			@kills = get_pscore('kills', @name)
+			@deaths = get_pscore('deaths', @name)
+			@kdkills = @kills
+			@kddeaths = @deaths
+				if(@kills == '0') {
+					@kdkills = '1'
+				}
+				if(@deaths == '0') {
+					@kddeaths = '1'
+				}
+				@kdratio = @kdkills/@kddeaths
+				msg(colorize('&6'.@name' Stats'))
+				msg(colorize('&6Kills:&e'@kills))
+				msg(colorize('&6Deaths:&e'@deaths))
+				msg(colorize('&6Kill/Death Ratio:&e'@kdratio))
+				die()
+		}
+	<<<
+guest:/resetstats = >>>
+reset_all_pscores(player())
+msg(colorize('&6You have just reseted your stats (Kills and Deaths)'))
+<<<
+guest:/bal = >>>
+run('/money')
+<<<
 				
 				
 	

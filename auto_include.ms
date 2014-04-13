@@ -56,7 +56,7 @@ proc(_identify_enchant_info, @ident,
 		}
 	)
 proc(_killstreak, @player, @number,
-	if(array_size(all_players()) > 7) {
+	if(array_size(all_players()) > 5) {
 		if(@number == '3') {
 			broadcast(colorize('&a'.@player'&bIs on &4Killing Spree'))
 			pgive_item(@player, '373:8229', '1')
@@ -86,32 +86,32 @@ proc(_killstreak, @player, @number,
 	}
 )
 
-proc(_diestreak, @player,
-	@killstreak = import('kill.streak.number.'.@player)
+proc(_diestreak, @died, @player,
+	@killstreak = import('kill.streak.number.'.@died)
 		if(@killstreak != null) {
 			if(@killstreak >= '50') {
-				acc_add(@player, '30')
-				tmsg(@player,colorize('&2You have been awarned $7 for killing a &4Legend'))
+				acc_add(@player, '50')
+				tmsg(@player,colorize('&2You have been awarned $50 for killing a &4Legend'))
 				die()
 			}
 			if(@killstreak >= '25') {
-				acc_add(@player, '10')
-				tmsg(@player,colorize('&2You have been awarned $10 for killing a &4GodLike'))
+				acc_add(@player, '30')
+				tmsg(@player,colorize('&2You have been awarned $30 for killing a &4GodLike'))
 				die()
 			}
 			if(@killstreak >= '15') {
-				acc_add(@player, '4')
-				tmsg(@player,colorize('&2You have been awarned $4 for killing a &4Dominator'))
+				acc_add(@player, '10')
+				tmsg(@player,colorize('&2You have been awarned $10 for killing a &4Dominator'))
 				die()
 			}
 			if(@killstreak >= '10') {
-				acc_add(@player, '3')
-				tmsg(@player,colorize('&2You have been awarned $3 for killing an &4Unstoppable'))
+				acc_add(@player, '7')
+				tmsg(@player,colorize('&2You have been awarned $7 for killing an &4Unstoppable'))
 				die()
 			}
 			if(@killstreak >= '5') {
-				acc_add(@player, '2')
-				tmsg(@player,colorize('&2You have been awarned $2 for stoping his &4Rampage'))
+				acc_add(@player, '5')
+				tmsg(@player,colorize('&2You have been awarned $5 for stoping his &4Rampage'))
 				die()
 			}
 			if(@killstreak >= '3') {

@@ -23,7 +23,7 @@ bind(player_death, null, null, @event,
 		}
 	tmsg(@died, colorize('&c You have been killed by'@killer))
 	export('kill.streak.number.'.@died, null)
-	_diestreak(@died) #there is die() in that procedure
+	_diestreak(@died, @killer) #there is die() in that procedure
 )
 
 	

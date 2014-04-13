@@ -6,7 +6,7 @@ proc(_loadonstartarrays,
 	# Add your kit name into the right array
 	##########################################
 	### Kit that can be bought, add the price!
-	@buylist = array(500: scout, 1000: assault, 1250: general, 2000: assassin, 3000: king, 5000: lord, 8000: pro)
+	@buylist = array(250: scout, 500: assault, 1000: general, 1500: assassin, 3000: king, 5000: lord, 8000: pro)
 	### permission based kits (even vip & vip+)
 	@permlist = array('fight', 'soldier', 'archer', 'vip', 'vipplus', 'legend', 'knight')
 	
@@ -27,7 +27,7 @@ proc(_loadonstartarrays,
 	#Dont forget to add your kit in the right list, Buy kit(whit price) or by Permission kit
 	##########################################
 	### Buyable Kits ###
-	export('kit.id.scout', array(array(306, 1), array(307, 1), array(308, 1), array(309, 1), array(261, 1, po, 2), array('373:8229', 2)))
+	export('kit.id.scout', array(array(306, 1), array(307, 1), array(308, 1), array(309, 1), array(261, 1, po, 2), array(262, 128), array('373:8229', 2)))
 	export('kit.id.assault', array(array(306, 1, p, 2), array(307, 1, p, 2), array(308, 1, p, 2), array(309, 1, p, 2), array(272, 1, s, 3), array('373:8229', 1), array('373:8201', 1)))
 	export('kit.id.general', array(array(310, 1), array(311, 1), array(307, 1, p, 2), array(308, 1, p, 2), array(272, 1, s, 2), array('373:8229', 2), array('373:8194', 2), array('373:8201', 2)))	
 	export('kit.id.assassin', array(array(310, 1), array(311, 1), array(308, 1, p, 3), array(309, 1, p, 3), array(267, 1, s, 1), array('373:8229', 2), array('373:8201', 3)))
@@ -52,10 +52,10 @@ proc(_loadonstartarrays,
 			return('1800000')
 		}
 		if(@ident == 'soldier') {
-			return('60000')
+			return('600')
 		}
 		if(@ident == 'archer') {
-			return('60000')
+			return('600')
 		}
 		if(@ident == 'knight') {
 			return('300000')
