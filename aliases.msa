@@ -38,6 +38,16 @@ guest:/kit [$kitname=''] [$option=''] = >>>
 							msg(colorize('&d'array_get(@item, 1)'&bX'data_name(array_get(@item, 0))))
 						}
 					}
+					if(is_numeric(@item)) {
+						@minutescd = integer(@item/1000/60)
+							if(@minutescd < 60) {
+								msg(colorize('&dCoolDown&b:&d'@minutescd'&bMinute(s)'))
+							}
+							if(@minutescd >= 60) {
+								@minutescd = integer(@minutescd/60)
+								msg(colorize('&dCoolDown&b:&d'@minutescd'&bHour(s)'))
+							}
+					}
 				}	
 			die()
 		}		

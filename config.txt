@@ -28,15 +28,25 @@ guest:/kit [$kitname=''] [$option=''] = >>>
 			if(@kitinfo == null) {
 				die(colorize('&4Error: This Kit does not exist'))
 			}
-			#remove Cooldown time (index 0) from @kitinfo
-				array_remove(@kitinfo, 0)
 				foreach(@kitinfo, @item) {
-					if(array_size(@item) > 2) {
-						@item3 = _identify_enchant_info(array_get(@item, 2))
-						msg(colorize('&d'array_get(@item, 1)'&bX'data_name(array_get(@item, 0))'&d with'@item3 array_get(@item, 3)))
+					if(!is_numeric(@item)) {
+						if(array_size(@item) > 2) {
+							@item3 = _identify_enchant_info(array_get(@item, 2))
+							msg(colorize('&d'array_get(@item, 1)'&bX'data_name(array_get(@item, 0))'&d with'@item3 array_get(@item, 3)))
+						}
+						if(array_size(@item) < 3) {
+							msg(colorize('&d'array_get(@item, 1)'&bX'data_name(array_get(@item, 0))))
+						}
 					}
-					if(array_size(@item) < 3) {
-						msg(colorize('&d'array_get(@item, 1)'&bX'data_name(array_get(@item, 0))))
+					if(is_numeric(@item)) {
+						@minutescd = integer(@item/1000/60)
+							if(@minutescd < 60) {
+								msg(colorize('&dCoolDown&b:&d'@minutescd'&bMinute(s)'))
+							}
+							if(@minutescd >= 60) {
+								@minutescd = integer(@minutescd/60)
+								msg(colorize('&dCoolDown&b:&d'@minutescd'&bHour(s)'))
+							}
 					}
 				}	
 			die()
@@ -50,22 +60,27 @@ guest:/kit [$kitname=''] [$option=''] = >>>
 								}
 								if(@kittimer < time()) {
 									@items = import('kit.id.'.@kitname)
-						#remove Cooldown time (index 0) from @kitinfo
-									array_remove(@items, 0)
 											foreach(@items, @item) {
-												if(array_size(@item) > 2) {
-												@item3 = _identify_enchant(array_get(@item, 2))
-												pgive_item(@player, array_get(@item, 0), array_get(@item, 1), array(enchants: array(array(elevel: array_get(@item, 3), etype: @item3))))
+												if(!is_numeric(@item)) {
+													if(array_size(@item) > 2) {
+														@item3 = _identify_enchant(array_get(@item, 2))
+														pgive_item(@player, array_get(@item, 0), array_get(@item, 1), array(enchants: array(array(elevel: array_get(@item, 3), etype: @item3))))
+													}
+													if(array_size(@item) < 3) {
+														pgive_item(@player, array_get(@item, 0), array_get(@item, 1))
+													}
 												}
-												if(array_size(@item) < 3) {
-												pgive_item(@player, array_get(@item, 0), array_get(@item, 1))
-												}	
 											}
 										@cooldown = _kit_cooldown(@kitname)
 										store_value('kit.used.'.@kitname.'.'.@player, add(time(), @cooldown))
 										die()
 								}
-								die(colorize('&4Error: Your kit is in CoolDown' integer(subtract(@kittimer, time())/1000/60)'minute left.'))
+								@minutesleft = integer(subtract(@kittimer, time())/1000/60)
+									if(@minutesleft >= 60) {
+										@minutesleft = integer(@minutesleft/60)
+										die(colorize('&4Error: Your kit is in CoolDown'@minutesleft'hour(s) left.'))
+									}
+								die(colorize('&4Error: Your kit is in CoolDown'@minutesleft'minute left.'))
 				}
 				die(colorize('&4Error: You do not have access to this kit'))
 			}
@@ -173,6 +188,7 @@ msg(colorize('&6You have just reseted your stats (Kills and Deaths)'))
 guest:/bal = >>>
 run('/money')
 <<<
+
 				
-				
+
 	

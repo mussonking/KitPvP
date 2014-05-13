@@ -6,7 +6,7 @@ proc(_loadonstartarrays,
 	# Add your kit name into the right array
 	##########################################
 	### Kit that can be bought, add the price!
-	@buylist = array(250: scout, 500: assault, 1000: general, 1500: assassin, 3000: king, 5000: lord, 8000: pro)
+	@buylist = array(250: scout, 400: assault, 600: general, 1000: assassin, 1600: king, 2400: lord, 6000: pro)
 	### permission based kits (even vip & vip+)
 	@permlist = array('runner', 'soldier', 'archer', 'vip', 'vipplus', 'legend', 'knight')
 	
