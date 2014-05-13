@@ -8,7 +8,7 @@ proc(_loadonstartarrays,
 	### Kit that can be bought, add the price!
 	@buylist = array(250: scout, 500: assault, 1000: general, 1500: assassin, 3000: king, 5000: lord, 8000: pro)
 	### permission based kits (even vip & vip+)
-	@permlist = array('fight', 'soldier', 'archer', 'vip', 'vipplus', 'legend', 'knight')
+	@permlist = array('runner', 'soldier', 'archer', 'vip', 'vipplus', 'legend', 'knight')
 	
 	##########################################
 	# Do NOT modify this part
@@ -23,74 +23,30 @@ proc(_loadonstartarrays,
 	
 	##########################################
 	#Add each kit using this format: export('kit.id.<kitname>', array(ItemID, Qty, EnchantType, EnchantLevel))
-	#enchant-type: p = protection po = power s = sharpness
+	#enchant-type: p = protection po = power s = sharpness  kb = knockback   akb = Punch   i = infinity 
 	#Dont forget to add your kit in the right list, Buy kit(whit price) or by Permission kit
 	##########################################
-	### Buyable Kits ###
-	export('kit.id.scout', array(array(306, 1), array(307, 1), array(308, 1), array(309, 1), array(261, 1, po, 2), array(262, 128), array('373:8229', 2)))
-	export('kit.id.assault', array(array(306, 1, p, 2), array(307, 1, p, 2), array(308, 1, p, 2), array(309, 1, p, 2), array(272, 1, s, 3), array('373:8229', 1), array('373:8201', 1)))
-	export('kit.id.general', array(array(310, 1), array(311, 1), array(307, 1, p, 2), array(308, 1, p, 2), array(272, 1, s, 2), array('373:8229', 2), array('373:8194', 2), array('373:8201', 2)))	
-	export('kit.id.assassin', array(array(310, 1), array(311, 1), array(308, 1, p, 3), array(309, 1, p, 3), array(267, 1, s, 1), array('373:8229', 2), array('373:8201', 3)))
-	export('kit.id.king', array(array(310, 1, p, 1), array(311, 1, p, 1), array(312, 1), array(313, 1), array(276, 1), array('373:8229', 1), array('322', 5)))
-	export('kit.id.lord', array(array(310, 1, p, 1), array(311, 1, p, 1), array(312, 1, p, 1), array(313, 1, p, 1), array(276, 1), array('373:8229', 1), array('322:1', 1)))
 	### Default Kits ###
-	export('kit.id.fight', array(array(306, 1), array(307, 1), array(308, 1), array(309, 1), array(272, 1, s, 1)))
-	export('kit.id.soldier', array(array(302, 1, p, 1), array(303, 1, p, 1), array(304, 1, p, 1), array(305, 1, p, 1), array(275, 1, s, 1), array('373:16421', 5)))
-	export('kit.id.archer', array(array(298, 1, p, 1), array(299, 1, p, 1), array(300, 1, p, 1), array(301, 1, p, 1), array(261, 1, po, 1), array(262, 128), array('373:16421', 3)))
-	export('kit.id.knight', array(array(314, 1, p, 2), array(315, 1, p, 2), array(316, 1, p, 2), array(317, 1, p, 2), array('373:16421', 3), array(272, 1, s, 2)))
-	export('kit.id.legend', array(array(310, 1), array(311, 1), array(312, 1), array(313, 1), array('373:16421', 2), array(267, 1, s, 3)))
+	export('kit.id.soldier', array(5000, array(298, 1), array(299, 1), array(300, 1), array(301, 1), array(268, 1)))
+	export('kit.id.runner', array(300000, array(315, 1, th, 1), array(280, 1, kb, 2), array('373:8194', 1)))
+	export('kit.id.archer', array(180000, array(314, 1), array(315, 1), array(316, 1), array(317, 1), array(261, 1, i, 1), array(262, 1), array('373:8197', 1)))
+	export('kit.id.knight', array(300000, array(302, 1, p, 1), array(315, 1, p, 1), array(316, 1, p, 2), array(305, 1), array('373:8197', 1), array(272, 1)))
+	export('kit.id.legend', array(3600000, array(306, 1), array(303, 1, p, 1), array(304, 1, p, 1), array(309, 1), array('373:8229', 2), array(272, 1, s, 1)))
+	### Buyable Kits ###
+	export('kit.id.scout', array(600000, array(306, 1), array(299, 1, p, 1), array(300, 1, p, 1), array(309, 1), array(268, 1, s, 2), array('373:8229', 1)))
+	export('kit.id.assault', array(1200000, array(302, 1, p, 1), array(307, 1), array(300, 1, p, 1), array(305, 1, p, 1), array(272, 1, s, 1), array('373:8229', 2), array(332, 16)))
+	export('kit.id.general', array(600000, array(306, 1), array(303, 1), array(304, 1, p, 1), array(309, 1, p, 1), array(271, 1, s, 4), array('373:8229', 1)))	
+	export('kit.id.assassin', array(3600000, array(298, 1), array(299, 1, p, 2), array(300, 1), array(301, 1), array(272, 1, s, 2), array(368, 2), array('373:8206', 2)))
+	export('kit.id.king', array(3600000, array(314, 1, p, 2), array(302, 1, p, 1), array(303, 1, p, 2), array(304, 1, p, 2), array(280, 1, s, 4), array('373:8229', 1)))
+	export('kit.id.lord', array(18000000, array(306, 1), array(303, 1, p, 1), array(304, 1, p, 1), array(305, 1, p, 1), array(276, 1), array('373:8229', 3), array('373:8225', 1), array('322', 2)))
 	### Donator kits ###
-	export('kit.id.pro', array(array(310, 1, p, 1), array(311, 1, p, 2), array(312, 1, p, 1), array(313, 1, p, 2), array('322:1', 1), array(276, 1, s, 1)))
-	export('kit.id.vip', array(array(302, 1, p, 2), array(303, 1, p, 2), array(304, 1, p, 2), array(305, 1, p, 2), array(322, 5), array('373:16421', 7), array('373:8201', 1), array(261, 1, po, 1), array(258, 1, s, 2), array(262, 64)))
-    export('kit.id.vipplus', array(array(306, 1, p, 3), array(307, 1, p, 3), array(308, 1, p, 3), array(309, 1, p, 3), array('322', 10), array('373:16421', 7), array(261, 1, po, 2), array(262, 64), array(267, 1, s, 2), array('373:8201', 1), array('322:1', 1)))
+	export('kit.id.pro', array(86400000, array(306, 1, p, 1), array(307, 1, p, 1), array(308, 1, p, 1), array(309, 1, p, 2), array('322', 5), array(267, 1, s, 2)))
+	export('kit.id.vip', array(21600000, array(306, 1), array(307, 1), array(308, 1), array(309, 1), array(267, 1), array(322, 1), array('373:8229', 2), array('373:8193', 2), array(261, 1, po, 1), array(262, 64)))
+    export('kit.id.vipplus', array(36000000, array(306, 1, p, 1), array(307, 1), array(308, 1), array(309, 1, p, 1), array('373:8229', 3), array(261, 1, po, 2), array(262, 64), array(267, 1), array('373:8225', 2)))
 )
-	##########################################
-	#Add each kit Timer Cooldown 
-	##########################################
-	proc(_kit_cooldown, @ident,
-		if(@ident == 'fight') {
-			return('1800000')
-		}
-		if(@ident == 'soldier') {
-			return('600')
-		}
-		if(@ident == 'archer') {
-			return('600')
-		}
-		if(@ident == 'knight') {
-			return('300000')
-		}
-		if(@ident == 'legend') {
-			return('21600000')
-		}
-		if(@ident == 'scout') {
-			return('3600000')
-		}	
-		if(@ident == 'assault') {
-			return('7200000')
-		}	
-		if(@ident == 'general') {
-			return('14400000')
-		}	
-		if(@ident == 'assassin') {
-			return('28800000')
-		}	
-		if(@ident == 'king') {
-			return('100800000')
-		}	
-		if(@ident == 'lord') {
-			return('345600000')
-		}			
-		if(@ident == 'pro') {
-			return('345600000')
-		}
 
-		if(@ident == 'vip') {
-			return('43200000')
-		}
-		if(@ident == 'vipplus') {
-			return('86400000')
-		}
-	)
-	
+proc(_kit_cooldown, @ident,
+	@return = array_get(import('kit.id.'.@ident), 0)
+		return(@return)
+)
 	

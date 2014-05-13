@@ -43,6 +43,18 @@ proc(_identify_enchant, @ident,
 		if(@ident == 's') {
 			return('DAMAGE_ALL')
 		}
+		if(@ident == 'i') {
+			return('ARROW_INFINITE')
+		}
+		if(@ident == 'kb') {
+			return('KNOCKBACK')
+		}
+		if(@ident == 'akb') {
+			return('ARROW_KNOCKBACK')
+		}
+		if(@ident == 'th') {
+			return('THORNS')
+		}
 	)
 proc(_identify_enchant_info, @ident,
 		if(@ident == 'p') {
@@ -53,6 +65,18 @@ proc(_identify_enchant_info, @ident,
 		}
 		if(@ident == 's') {
 			return('Sharpness')
+		}
+		if(@ident == 'i') {
+			return('Infinity')
+		}
+		if(@ident == 'kb') {
+			return('KnockBack')
+		}
+		if(@ident == 'akb') {
+			return('Punch')
+		}
+		if(@ident == 'th') {
+			return('Thorns')
 		}
 	)
 proc(_killstreak, @player, @number,

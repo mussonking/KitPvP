@@ -25,5 +25,4 @@ bind(player_death, null, null, @event,
 	export('kill.streak.number.'.@died, null)
 	_diestreak(@died, @killer) #there is die() in that procedure
 )
-
 	
