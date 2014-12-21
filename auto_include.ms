@@ -81,6 +81,9 @@ proc(_identify_enchant_info, @ident,
 		if(@ident == 'th') {
 			return('Thorns')
 		}
+		if(@ident == 'ff') {
+			return('FeatherFalling')
+		}
 	)
 proc(_killstreak, @player, @number,
 	if(array_size(all_players()) > 5) {
