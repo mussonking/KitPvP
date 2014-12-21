@@ -181,7 +181,7 @@ guest:/stats [$name=''] = >>>
 				die()
 		}
 	<<<
-guest:/resetstats = >>>
+admin:/resetstats = >>>
 reset_all_pscores(player())
 msg(colorize('&6You have just reseted your stats (Kills and Deaths)'))
 <<<
