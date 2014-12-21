@@ -55,6 +55,9 @@ proc(_identify_enchant, @ident,
 		if(@ident == 'th') {
 			return('THORNS')
 		}
+		if(@ident == 'ff') {
+			return('FEATHER_FALLING')
+		}
 	)
 proc(_identify_enchant_info, @ident,
 		if(@ident == 'p') {
