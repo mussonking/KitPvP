@@ -8,7 +8,7 @@ proc(_loadonstartarrays,
     ### Kit that can be bought, add the price!
     @buylist = array(300: scout, 600: general, 1200: sniper, 2000: sergeant, 4000: lieutenant)
     ### permission based kits (even vip & vip+)
-    @permlist = array('recruit', 'private', 'corporal')
+    @permlist = array('recruit', 'private', 'corporal', 'vip', 'vipplus', 'vipplusplus')
     
     ##########################################
     # Do NOT modify this part
@@ -31,8 +31,8 @@ proc(_loadonstartarrays,
     export('kit.id.private', array(300000, array(272, 1, s, 1), array(261, 1, i, 1), array(302, 1, p, 1), array(303, 1), array(304, 1), array(305, 1, p, 1), array('373:8229', 1), array(262, 1))) #Done
     export('kit.id.corporal', array(600000, array(272, 1, s, 3), array(261, 1, po, 1), array(306, 1), array(303, 1, p, 1), array(308, 1), array(309, 1), array('373:8229', 2), array(262, 64))) #Done
     ### Buyable Kits ###
-    export('kit.id.scout', array(900000, array(268, 1, s, 3), array(306, 1), array(303, 1, p, 1) array(304, 1, p, 1), array(309, 1), array('373:8226', 1), array('373:8229', 2))) #Done
-    export('kit.id.general', array(1200000, array(275, 1 , s, 3), array(280, 1, kb, 2), array(306, 1), 303, 1, p, 1), array(308, 1), array(309, 1), array('373:8229';, 3))) #Done
+    export('kit.id.scout', array(900000, array(268, 1, s, 3), array(306, 1), array(303, 1, p, 1), array(304, 1, p, 1), array(309, 1), array('373:8226', 1), array('373:8229', 2))) #Done
+	export('kit.id.general', array(1200000, array(275, 1 , s, 3), array(280, 1, kb, 2), array(306, 1), array(303, 1, p, 1), array(308, 1), array(309, 1), array('373:8229';, 3))) #Done
     export('kit.id.sniper', array(2400000, array(261, 1, p, 1, i, 1), array('373:8206', 2), array(368, 2), array(305, 1, ff, 2), array(262, 1))) #Done
     export('kit.id.sergeant', array(3600000, array(267, 1, s, 2), array(302, 1, p, 1), array(307, 1), array(308, 1), array(309, 1), array('373:8225', 1), array('373:16421', 1), array('373:8229', 2))) #Done
     ### Donator kits ###

@@ -32,7 +32,13 @@ guest:/kit [$kitname=''] [$option=''] = >>>
 					if(!is_numeric(@item)) {
 						if(array_size(@item) > 2) {
 							@item3 = _identify_enchant_info(array_get(@item, 2))
-							msg(colorize('&d'array_get(@item, 1)'&bX'data_name(array_get(@item, 0))'&d with'@item3 array_get(@item, 3)))
+							if(array_size(@item) < 5) {
+								msg(colorize('&d'array_get(@item, 1)'&bX'data_name(array_get(@item, 0))'&d with'@item3 array_get(@item, 3)))
+							}
+							if(array_size(@item) > 4) {
+								@item4 = _identify_enchant_info(array_get(@item, 4))
+								msg(colorize('&d'array_get(@item, 1)'&bX'data_name(array_get(@item, 0))'&dwith'@item3 array_get(@item, 3)'&dand'@item4 array_get(@item, 5)))
+							}	
 						}
 						if(array_size(@item) < 3) {
 							msg(colorize('&d'array_get(@item, 1)'&bX'data_name(array_get(@item, 0))))
@@ -64,7 +70,13 @@ guest:/kit [$kitname=''] [$option=''] = >>>
 												if(!is_numeric(@item)) {
 													if(array_size(@item) > 2) {
 														@item3 = _identify_enchant(array_get(@item, 2))
-														pgive_item(@player, array_get(@item, 0), array_get(@item, 1), array(enchants: array(array(elevel: array_get(@item, 3), etype: @item3))))
+															if(array_size(@item) < 5) {
+																pgive_item(@player, array_get(@item, 0), array_get(@item, 1), array(enchants: array(array(elevel: array_get(@item, 3), etype: @item3))))
+															}
+															if(array_size(@item) > 4) {
+																@item4 = _identify_enchant(array_get(@item, 4))
+																pgive_item(@player, array_get(@item, 0), array_get(@item, 1), array(enchants: array(array(elevel: array_get(@item, 3), etype: @item3), array(etype: @item4, elevel: array_get(@item, 5)))))
+															}
 													}
 													if(array_size(@item) < 3) {
 														pgive_item(@player, array_get(@item, 0), array_get(@item, 1))
@@ -188,7 +200,3 @@ msg(colorize('&6You have just reseted your stats (Kills and Deaths)'))
 guest:/bal = >>>
 run('/money')
 <<<
-
-				
-
-	
