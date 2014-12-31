@@ -56,7 +56,7 @@ proc(_identify_enchant, @ident,
 			return('THORNS')
 		}
 		if(@ident == 'ff') {
-			return('FEATHER_FALLING')
+			return('PROTECTION_FALL')
 		}
 	)
 proc(_identify_enchant_info, @ident,
@@ -82,7 +82,7 @@ proc(_identify_enchant_info, @ident,
 			return('Thorns')
 		}
 		if(@ident == 'ff') {
-			return('FeatherFalling')
+			return('Feather Falling')
 		}
 	)
 proc(_killstreak, @player, @number,

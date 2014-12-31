@@ -33,7 +33,7 @@ proc(_loadonstartarrays,
     ### Buyable Kits ###
     export('kit.id.scout', array(900000, array(268, 1, s, 3), array(306, 1), array(303, 1, p, 1), array(304, 1, p, 1), array(309, 1), array('373:8226', 1), array('373:8229', 2))) #Done
 	export('kit.id.general', array(1200000, array(275, 1 , s, 3), array(280, 1, kb, 2), array(306, 1), array(303, 1, p, 1), array(308, 1), array(309, 1), array('373:8229';, 3))) #Done
-    export('kit.id.sniper', array(2400000, array(261, 1, p, 1, i, 1), array('373:8206', 2), array(368, 2), array(305, 1, ff, 2), array(262, 1))) #Done
+    export('kit.id.sniper', array(2400000, array(261, 1, po, 1, i, 1), array('373:8206', 2), array(368, 2), array(305, 1, ff, 2), array(262, 1))) #Done
     export('kit.id.sergeant', array(3600000, array(267, 1, s, 2), array(302, 1, p, 1), array(307, 1), array(308, 1), array(309, 1), array('373:8225', 1), array('373:16421', 1), array('373:8229', 2))) #Done
     ### Donator kits ###
     export('kit.id.lieutenant', array(28800000, array(267, 1, s, 3), array(306, 1, p, 1), array(307, 1, p, 1), array(308, 1, p, 1), array(309, 1, p, 1), array(322, 5), array('373:16421', 1), array('373:8229', 2))) #Done
