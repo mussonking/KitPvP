@@ -13,16 +13,22 @@ bind(player_death, null, null, @event,
 		if(ponline(@killer)) {
 			acc_add(@killer, @amount)
 			tmsg(@killer, colorize('&2 You have been awarned'@amount'for killing'@died))
-			@killstreak = import('kill.streak.number'.@killer)
+				if(has_permission(@killer, 'donator.vip')) {
+					@killmessage = get_value('kill.custom.message'.@killer)
+					if(@killmessage != null) {
+						modify_event('death_message', @died colorize(@killmessage))
+					}
+				}
+			@killstreak = import('kill.streak.number.'.@killer)
 				if(!is_numeric(@killstreak)) {
 					@killstreak = '0'
 				}
 				@killstreak++
-				export('kill.streak.number'.@killer, @killstreak)
+				export('kill.streak.number.'.@killer, @killstreak)
 				_killstreak(@killer, @killstreak)
 		}
 	tmsg(@died, colorize('&c You have been killed by'@killer))
-	export('kill.streak.number.'.@died, null)
-	_diestreak(@died, @killer) #there is die() in that procedure
+	#there is die() in that procedure
+	_diestreak(@died, @killer) 
 )
 	

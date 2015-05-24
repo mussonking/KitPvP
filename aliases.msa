@@ -200,3 +200,13 @@ msg(colorize('&6You have just reseted your stats (Kills and Deaths)'))
 guest:/bal = >>>
 run('/money')
 <<<
+
+guest:/setkillmsg $ = >>>
+@player = player()
+@msg = $
+	if(!has_permission(@player, 'donator.vip')) {
+		die(colorize('&4Error: You do not have access to this command'))
+	}
+	store_value('kill.custom.message'.@player, @msg)
+    die(colorize('&4New kill message set.'))	
+<<<

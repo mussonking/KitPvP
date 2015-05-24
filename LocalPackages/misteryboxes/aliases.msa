@@ -1,0 +1,32 @@
+guest:/superteaser = >>>
+	@player = player()
+	if(!has_permission(@player, 'donator.vip')) {
+		die(colorize('&4Error: You do not have access to this command'))
+	}
+	@teasertimer = get_value('superteaser.chest.'.@player)
+								if(@teasertimer == null) {
+									@teasertimer = '0'
+								}
+								if(@teasertimer < time()) {
+									pgive_item(@player, 146, '1', array(display: 'Super Teaser Chest'))
+									store_value('superteaser.chest.'.@player, add(time(), 14400000))
+									die(colorize('&5You received your daily Super Teaser Chest! You can get it again in 4 hours!'))
+								}
+								die(colorize('&4Error: You already got your Super Teaser Chest in the last 4 hours!'))
+	<<<
+guest:/epicteaser = >>>
+	@player = player()
+	if(!has_permission(@player, 'donator.vip+')) {
+		die(colorize('&4Error: You do not have access to this command'))
+	}
+	@teasertimer = get_value('epicteaser.chest.'.@player)
+								if(@teasertimer == null) {
+									@teasertimer = '0'
+								}
+								if(@teasertimer < time()) {
+									pgive_item(@player, 130, '1', array(display: 'Epic Teaser Chest'))
+									store_value('epicteaser.chest.'.@player, add(time(), 28800000))
+									die(colorize('&5You received your daily Epic Teaser Chest! You can get it again in 8 hours!'))
+								}
+								die(colorize('&4Error: You already got your Epic Teaser Chest in the last 8 hours!'))
+	<<<

@@ -27,19 +27,19 @@ proc(_loadonstartarrays,
     #Dont forget to add your kit in the right list, Buy kit(with price) or by Permission kit                  
     ##########################################
     ### Default Kits ###
-    export('kit.id.recruit', array(60000, array(272, 1), array(261, 1, i, 1), array(302, 1), array(303, 1), array(304, 1), array(305, 1), array('373:8197', 1), array(262, 1))) #Done
-    export('kit.id.private', array(300000, array(272, 1, s, 1), array(261, 1, i, 1), array(302, 1, p, 1), array(303, 1), array(304, 1), array(305, 1, p, 1), array('373:8229', 1), array(262, 1))) #Done
-    export('kit.id.corporal', array(600000, array(272, 1, s, 3), array(261, 1, po, 1), array(306, 1), array(303, 1, p, 1), array(308, 1), array(309, 1), array('373:8229', 2), array(262, 64))) #Done
+    export('kit.id.recruit', array(30000, array(272, 1, s, 1), array(261, 1, i, 1), array(302, 1, p, 1), array(303, 1), array(304, 1), array(305, 1, p, 1), array('373:8229', 1), array(262, 1))) 
+    export('kit.id.private', array(120000, array(272, 1, s, 2), array(261, 1, i, 1), array(302, 1), array(303, 1, p, 1), array(304, 1, p, 1), array(305, 1), array('373:8229', 2), array(262, 1))) 
+    export('kit.id.corporal', array(600000, array(272, 1, s, 3), array(261, 1, po, 1), array(306, 1), array(303, 1, p, 1), array(308, 1), array(309, 1), array('373:8229', 3), array(262, 64))) 
     ### Buyable Kits ###
-    export('kit.id.scout', array(900000, array(268, 1, s, 3), array(306, 1), array(303, 1, p, 1), array(304, 1, p, 1), array(309, 1), array('373:8226', 1), array('373:8229', 2))) #Done
-	export('kit.id.general', array(1200000, array(275, 1 , s, 3), array(280, 1, kb, 2), array(306, 1), array(303, 1, p, 1), array(308, 1), array(309, 1), array('373:8229';, 3))) #Done
-    export('kit.id.sniper', array(2400000, array(261, 1, po, 1, i, 1), array('373:8206', 2), array(368, 2), array(305, 1, ff, 2), array(262, 1))) #Done
-    export('kit.id.sergeant', array(3600000, array(267, 1, s, 2), array(302, 1, p, 1), array(307, 1), array(308, 1), array(309, 1), array('373:8225', 1), array('373:16421', 1), array('373:8229', 2))) #Done
+    export('kit.id.scout', array(900000, array(268, 1, s, 3), array(306, 1), array(303, 1, p, 1), array(304, 1, p, 1), array(309, 1), array('373:8226', 1), array('373:8229', 2))) 
+	export('kit.id.general', array(1800000, array(267, 1 , s, 2), array(261, 1, po, 1), array(280, 1, kb, 2), array(306, 1), array(307, 1), array(308, 1), array(309, 1), array('373:8229', 3), array('373:16421', 3), array(262, 64))) 
+    export('kit.id.sniper', array(2100000, array(268, 1, s, 3), array(261, 1, po, 1, i, 1), array('373:8206', 2), array(368, 2), array(262, 1))) 
+    export('kit.id.sergeant', array(3600000, array(258, 1, s, 3), array(261, 1, po, 1), array(306, 1, p, 1), array(307, 1), array(308, 1), array(309, 1, p, 1), array('373:8225', 1), array('373:16421', 1), array('373:8229', 2), array(262, 64))) 
     ### Donator kits ###
-    export('kit.id.lieutenant', array(28800000, array(267, 1, s, 3), array(306, 1, p, 1), array(307, 1, p, 1), array(308, 1, p, 1), array(309, 1, p, 1), array(322, 5), array('373:16421', 1), array('373:8229', 2))) #Done
-    export('kit.id.vip', array(43200000, array(267, 1, s , 2), array(261, 1, po, 2), array(306, 1, p, 1), array(307, 1), array(308, 1), array(309, 1, p, 1), array('373:16421', 2), array('373:8229', 3), array(262, 64))) #Done
-    export('kit.id.vipplus', array(43200000, array(267, 1, s, 3), array(261, 1, po, 2, i, 1), array(306, 1), array(307, 1, p, 1), array(308, 1, p, 1), array(309, 1), array('373:16421', 3), array('373:8229', 3), array(262, 1))) #Done
-    export('kit.id.vipplusplus', array(350000, array(272, 1, s, 2), array(261, 1, i, 1), array(302, 1, p, 1), array(303, 1, p, 1), array(304, 1, p, 1), array(305, 1, p, 1), array('373:8229', 2), array(262, 1))) #Done & Needs To Be Added To Perms List 
+    export('kit.id.lieutenant', array(14400000, array(267, 1, s, 3), array(261, 1, po, 1), array(306, 1, p, 1), array(307, 1, p, 1), array(308, 1, p, 1), array(309, 1, p, 1), array(322, 5), array('373:16421', 1), array('373:8229', 2), array(262, 1))) 
+    export('kit.id.vip', array(5400000, array(267, 1, s , 2), array(261, 1, po, 2), array(306, 1, p, 1), array(307, 1), array(308, 1, p, 1), array(309, 1, p, 1), array('373:16421', 2), array('373:8229', 3), array(262, 64))) 
+    export('kit.id.vipplus', array(14400000, array(267, 1, s, 3), array(261, 1, po, 2, i, 1), array(306, 1, p, 1), array(307, 1, p, 1), array(308, 1, p, 1), array(309, 1, p, 1), array('373:16421', 3), array('373:8229', 3), array(262, 1))) 
+    export('kit.id.vipplusplus', array(300000, array(272, 1, s, 2), array(261, 1, i, 1), array(302, 1, p, 1), array(303, 1, p, 1), array(304, 1, p, 1), array(305, 1, p, 1), array('373:8229', 2), array(262, 1))) 
 )
 
 proc(_kit_cooldown, @ident,
